@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".TextCapitalizer">
+
+    <EditText
+        android:id="@+id/edittext_enter_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter text" />
+
+    <Button
+        android:id="@+id/capitalize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Capitalize" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true"
+        android:textSize="20sp"
+        android:hint="capitalized text copy from here"
+        android:id="@+id/tv_capitalized_text" />
+
+    <Button
+        android:id="@+id/selectall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Copy All" />
+
+</LinearLayout>
