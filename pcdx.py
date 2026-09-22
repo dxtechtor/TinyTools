@@ -264,9 +264,19 @@ def get_score_history():
 def check_update():
     return jsonify({
         "version_code": 5, 
-        "server_url": "http://152.58.61.164:5050/api/", 
-        "apk_url": "http://152.58.61.164/static/pcdx.apk"
+        # request.host_url automatically gets the current IP and port
+        "server_url": f"{request.host_url}api/", 
+        "apk_url": f"{request.host_url}static/pcdx.apk"
     }), 200
+    
+    
+# @app.route('/api/check_update', methods=['GET'])
+# def check_update():
+    # return jsonify({
+        # "version_code": 5, 
+        # "server_url": "http://10.218.57.59:5050/api/", 
+        # "apk_url": "http://10.218.57.59:5050/static/pcdx.apk"
+    # }), 200
 
 @app.route('/api/check_updates', methods=['GET'])
 def check_updates():
