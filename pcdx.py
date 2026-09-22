@@ -269,15 +269,15 @@ def get_score_history():
         # "apk_url": f"{request.host_url}static/pcdx.apk"
     # }), 200
     
-@app.route('/api/check_update', methods=['GET'])
-def check_update():
-    # Force HTTPS by replacing http:// with https://
-    base_url = request.host_url.replace("http://", "https://")
-    return jsonify({
-        "version_code": 5, 
-        "server_url": f"{request.host_url}api/", 
-        "apk_url": f"{request.host_url}static/pcdx.apk"
-    }), 200
+# @app.route('/api/check_update', methods=['GET'])
+# def check_update():
+    # # Force HTTPS by replacing http:// with https://
+    # base_url = request.host_url.replace("http://", "https://")
+    # return jsonify({
+        # "version_code": 5, 
+        # "server_url": f"{request.host_url}api/", 
+        # "apk_url": f"{request.host_url}static/pcdx.apk"
+    # }), 200
     
 # @app.route('/api/check_update', methods=['GET'])
 # def check_update():
@@ -287,6 +287,16 @@ def check_update():
         # "apk_url": "http://10.218.57.59:5050/static/pcdx.apk"
     # }), 200
 
+@app.route('/api/check_update', methods=['GET'])
+def check_update():
+    # Force HTTPS by replacing http:// with https://
+    base_url = request.host_url.replace("http://", "https://")
+    return jsonify({
+        "version_code": 5, 
+        "server_url": f"{base_url}api/",  # <-- Changed here
+        "apk_url": f"{base_url}static/pcdx.apk" # <-- Changed here
+    }), 200
+    
 @app.route('/api/check_updates', methods=['GET'])
 def check_updates():
     uid = request.args.get('userid')
