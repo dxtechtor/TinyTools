@@ -275,8 +275,8 @@ def check_update():
     base_url = request.host_url.replace("http://", "https://")
     return jsonify({
         "version_code": 5, 
-        "server_url": f"{base_url}api/", 
-        "apk_url": f"{base_url}static/pcdx.apk"
+        "server_url": f"{request.host_url}api/", 
+        "apk_url": f"{request.host_url}static/pcdx.apk"
     }), 200
     
 # @app.route('/api/check_update', methods=['GET'])
