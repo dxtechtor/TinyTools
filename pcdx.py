@@ -260,15 +260,24 @@ def get_score_history():
     with connect_db() as conn:
         return jsonify([dict(r) for r in conn.execute("SELECT * FROM score_history WHERE userid=? ORDER BY timestamp DESC", (request.args.get('userid'),)).fetchall()])
 
+# @app.route('/api/check_update', methods=['GET'])
+# def check_update():
+    # return jsonify({
+        # "version_code": 5, 
+        # # request.host_url automatically gets the current IP and port
+        # "server_url": f"{request.host_url}api/", 
+        # "apk_url": f"{request.host_url}static/pcdx.apk"
+    # }), 200
+    
 @app.route('/api/check_update', methods=['GET'])
 def check_update():
+    # Force HTTPS by replacing http:// with https://
+    base_url = request.host_url.replace("http://", "https://")
     return jsonify({
         "version_code": 5, 
-        # request.host_url automatically gets the current IP and port
-        "server_url": f"{request.host_url}api/", 
-        "apk_url": f"{request.host_url}static/pcdx.apk"
+        "server_url": f"{base_url}api/", 
+        "apk_url": f"{base_url}static/pcdx.apk"
     }), 200
-    
     
 # @app.route('/api/check_update', methods=['GET'])
 # def check_update():
